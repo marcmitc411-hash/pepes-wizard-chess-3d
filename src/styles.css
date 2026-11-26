@@ -2212,20 +2212,24 @@ body.cinematic-ui-hidden #hud-bottom {
 
 .chess-clock-bar {
   position: fixed;
-  top: 68px;
-  left: 20px;
-  z-index: 9;
+  bottom: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  max-width: calc(100vw - 24px);
   pointer-events: auto;
+  transition: bottom 0.25s ease;
 }
 
 body.cinematic-ui-hidden .chess-clock-bar {
-  opacity: 0 !important;
-  pointer-events: none !important;
-  transition: opacity 0.25s ease;
+  bottom: 18px;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .clock-pill {
@@ -2326,10 +2330,15 @@ body.cinematic-ui-hidden .chess-clock-bar {
 
 @media (max-width: 768px) {
   .chess-clock-bar {
-    top: 60px;
-    left: 12px;
-    right: 12px;
+    bottom: 52px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
     gap: 5px;
+  }
+
+  body.cinematic-ui-hidden .chess-clock-bar {
+    bottom: 14px;
   }
 
   .clock-pill {
