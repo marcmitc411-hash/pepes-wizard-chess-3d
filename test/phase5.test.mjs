@@ -62,4 +62,12 @@ test('Engine exposes premove, animation speed scaling, and timeout hooks in wiza
   ]) {
     assert.ok(engineJs.includes(symbol), `Missing ${symbol} in src/wizardChessEngine.js`);
   }
+
+  const execIdx = engineJs.indexOf('activeCamTransition = null;');
+  assert.ok(execIdx !== -1, 'Expected activeCamTransition = null in executeChessMove');
+  const execSlice = engineJs.slice(execIdx, execIdx + 180);
+  assert.ok(
+    !execSlice.includes('clearPremoves()'),
+    'executeChessMove must not clear queued premoves when opponent move starts'
+  );
 });

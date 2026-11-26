@@ -2506,7 +2506,6 @@ export function initWizardChess(bridge = {}) {
       activeCamTransition = null;
       clearSquareHighlights();
       clearCoachHighlights();
-      clearPremoves();
       forcedOutcome = null;
       forcedWinner = null;
       selectedSquare = null;
